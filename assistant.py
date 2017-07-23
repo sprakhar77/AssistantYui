@@ -27,19 +27,25 @@ def listen():
 
     return ""
 
-def process():
+def request_handler():
     speak("Hey! I am Jarvis, what can i do for you today")
     while True:
         request = listen().lower()
         print request
         if request == "shutdown":
             check_call(["shutdown"])
+        elif request == "restart":
+            check_call(["restart"])
         elif request == "what is the time":
             print time.ctime()
+        elif request == "wish birthday":
+            check_call("python ./task/wish_birthday.py"):
+        elif request == "post in bulk":
+            check_call("python ./task/bulk_posting.py"):
         elif request == "exit":
             speak("Bye! See you next time")
             return
         speak("How can i help you?")
 
 if __name__ == '__main__':
-    process()
+    request_handler()
